@@ -80,10 +80,10 @@ export class SmtSelectComponent implements OnDestroy {
     }
 
     private openPocket(): void {
+        this.calculateDirection();
         this.isPocketOpen = true;
         this.pocketOpen.emit(true);
         this.searchText = '';
-        this.calculateDirection();
         this.focusInput();
         this.addOutsideClickListener();
     }
@@ -112,17 +112,15 @@ export class SmtSelectComponent implements OnDestroy {
     }
 
     private calculateDirection(): void {
-        timer(0).pipe(take(1)).subscribe(() => {
-            const rect = this.el.nativeElement.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            const pocketHeight = 200; // max-height 
+        const rect = this.el.nativeElement.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const pocketHeight = 200; // max-height 
 
-            if (windowHeight - rect.bottom < pocketHeight && rect.top > pocketHeight) {
-                this.isOpenReverse = true;
-            } else {
-                this.isOpenReverse = false;
-            }
-        });
+        if (windowHeight - rect.bottom < pocketHeight && rect.top > pocketHeight) {
+            this.isOpenReverse = true;
+        } else {
+            this.isOpenReverse = false;
+        }
     }
 
     private focusInput(): void {
@@ -132,7 +130,7 @@ export class SmtSelectComponent implements OnDestroy {
     }
 
     onBlur(): void {
-        // Klavye ile çıkış senaryoları için delay
+        // Keyboard exit scenarios delay
         timer(200).pipe(take(1)).subscribe(() => {
             if (this.isPocketOpen) {
                 this.closePocket();

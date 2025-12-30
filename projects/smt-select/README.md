@@ -1,63 +1,99 @@
-# SmtSelectbox
+# SmtSelect 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.0.
+A high-performance, lightweight, and customizable **Angular Select Component** with built-in Virtual Scroll and Search capabilities.
 
-## Code scaffolding
+## ✨ Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **🔍 Searchable**: Quickly filter through thousands of options.
+- **⚡ Virtual Scroll**: Built-in support for high-performance rendering of large datasets.
+- **✅ Multi-Select**: Support for multiple selection out of the box.
+- **🎨 Custom Styling**: Fully customizable via SCSS tokens.
+- **📱 Responsive**: Works seamlessly across mobile and desktop.
+- **🛡️ Type Safe**: Developed with strict TypeScript.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🚀 Installation
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the library, run:
+Install the package via npm:
 
 ```bash
-ng build smt-select
+npm install smt-select
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+---
 
-### Publishing the Library
+## 📦 Usage
 
-Once the project is built, you can publish your library by following these steps:
+### 1. Component Logic (app.component.ts)
+```typescript
+import { SmtSelectComponent, SmtSelectOption, SmtSelectConfig } from 'smt-select';
 
-1. Navigate to the `dist` directory:
-   ```bash
-   cd dist/smt-select
-   ```
+@Component({
+  standalone: true,
+  imports: [SmtSelectComponent],
+  selector: 'app-root',
+  templateUrl: './app.component.html'
+})
+export class AppComponent {
+  myOptions: SmtSelectOption[] = [
+    { value: 1, label: 'Option 1' },
+    { value: 2, label: 'Option 2' },
+    { value: 3, label: 'Option 3' }
+  ];
+  
+  selectConfig: SmtSelectConfig = {
+    placeholder: 'Choose an item...',
+    virtualScroll: true,
+    isMultiSelect: false
+  };
 
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+  onSelection(value: any) {
+    console.log('Selected value:', value);
+  }
+}
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+### 2. Template (app.component.html)
+```html
+<smt-select 
+  [options]="myOptions" 
+  [config]="selectConfig"
+  [(selectedValue)]="currentValue"
+  (selectionChange)="onSelection($event)">
+</smt-select>
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## ⚙️ API Reference
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Inputs
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `options` | `SmtSelectOption[]` | `[]` | Array of options to display. |
+| `config` | `SmtSelectConfig` | `{}` | Configuration object for the component. |
+| `selectedValue` | `any \| any[]` | `null` | The currently selected value(s). Supports two-way binding. |
+| `errorMessage` | `string \| null` | `undefined` | Error message to display below the component. |
+| `isInvalid` | `boolean` | `false` | Manually trigger error state if `errorMessage` is not provided. |
+| `visibility` | `SmtVisibilityType` | `ENABLED` | Controls accessibility (`ENABLED`, `READONLY`, `HIDDEN`). |
+
+### Outputs
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `selectionChange` | `any \| any[]` | Fired when the selected value changes. |
+| `pocketOpen` | `boolean` | Fired when the dropdown is opened or closed. |
+
+### Configuration (`SmtSelectConfig`)
+| Property | Type | Description |
+|----------|------|-------------|
+| `fieldID` | `string \| number` | Unique ID for the wrapper element. |
+| `placeholder` | `string` | Text to show when no value is selected. |
+| `virtualScroll` | `boolean` | Enable/Disable CDK Virtual Scroll for large datasets. |
+| `isMultiSelect` | `boolean` | Enable multiple item selection. |
+
+---
+
+## 📄 License
+
+MIT © [Samet Acar](LICENSE)
