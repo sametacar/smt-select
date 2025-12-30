@@ -1,0 +1,48 @@
+<div style="padding: 50px; max-width: 800px; margin: 0 auto; font-family: sans-serif;">
+  <h1>{{ label }}</h1>
+  <section style="margin-bottom: 40px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+    <h3>1. Single Select Example</h3>
+    <div style="width: 300px;">
+      <smt-select [options]="countries" [config]="singleSelectConfig" [selectedValue]="singleSelectedValue"
+        [errorMessage]="null" [isInvalid]="true" (selectionChange)="onSingleChange($event)">
+      </smt-select>
+    </div>
+    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+      <strong>Selected Value:</strong> {{ singleSelectedValue }}
+    </p>
+  </section>
+
+  <section style="margin-bottom: 40px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+    <h3>2. Multi Select Example</h3>
+    <div style="width: 300px;">
+      <smt-select [options]="countries" [config]="multiSelectConfig" [selectedValue]="multiSelectedValue"
+        (selectionChange)="onMultiChange($event)">
+      </smt-select>
+    </div>
+    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+      <strong>Selected Values:</strong> {{ multiSelectedValue | json }}
+    </p>
+  </section>
+
+  <section style="margin-bottom: 40px; padding: 20px; border: 1px solid #eee; border-radius: 8px;">
+    <h3>2. Multi Select with Virtual Scroll Example</h3>
+    <div style="width: 300px;">
+      <smt-select [options]="countries" [config]="multiSelectConfigVirtualScroll"
+        [selectedValue]="multiSelectedValueVirtualScroll" (selectionChange)="onMultiVirtualChange($event)">
+      </smt-select>
+    </div>
+    <p style="margin-top: 15px; font-size: 14px; color: #666;">
+      <strong>Selected Values:</strong> {{ multiSelectedValueVirtualScroll | json }}
+    </p>
+  </section>
+
+  <section style="padding: 20px; border: 1px solid #eee; background: #f9f9f9; border-radius: 8px;">
+    <h3>Why should I use this library?</h3>
+    <ul>
+      <li>Standalone</li>
+      <li>Performant (Virtual Scroll supported)</li>
+      <li>Customizable</li>
+      <li>Multi-select and Search included</li>
+    </ul>
+  </section>
+</div>

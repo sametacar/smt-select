@@ -1,0 +1,54 @@
+<div *ngIf="visibility !== VisibilityType.HIDDEN" class="smt-select-wrapper" [id]="config.fieldID || ''"
+  (mousedown)="$event.stopPropagation()" (click)="$event.stopPropagation()">
+  <div class="smt-select-control" (click)="togglePocket()" [class.disabled]="visibility === VisibilityType.READONLY"
+    [class.error]="errorMessage ? true : (errorMessage === undefined ? isInvalid : false)">
+
+    <!-- Search Input -->
+    <input #input *ngIf="isPocketOpen" [(ngModel)]="searchText" (click)="$event.stopPropagation()"
+      (keydown.enter)="onEnterPressed()" (blur)="onBlur()" class="smt-select-input"
+      [placeholder]="config.placeholder || 'Select...'">
+
+    <!-- Selected Value Display -->
+    <ng-container *ngIf="!isPocketOpen">
+      <span class="select-value" [class.placeholder]="!hasSelection">
+        {{ displayText() }}
+      </span>
+    </ng-container>
+
+    <div class="arrow-icon" [class.up]="isPocketOpen"></div>
+  </div>
+
+  <!-- Dropdown (Pocket) -->
+  <div #pocket *ngIf="isPocketOpen" class="smt-select-pocket" [class.open-reverse]="isOpenReverse">
+
+    <!-- Standard List -->
+    <ul *ngIf="!config.virtualScroll">
+      <li *ngFor="let option of options | smtSelectSearchFilter: searchText" (click)="selectOption(option, $event)"
+        class="smt-select-option" [class.active]="isSelected(option)">
+
+        <div *ngIf="config.isMultiSelect" class="checkbox-container">
+          <input type="checkbox" [checked]="isSelected(option)" (click)="$event.stopPropagation()">
+        </div>
+
+        <span>{{ option.label }}</span>
+      </li>
+    </ul>
+
+    <!-- Virtual Scroll -->
+    <cdk-virtual-scroll-viewport *ngIf="config.virtualScroll" itemSize="34" class="virtual-scroll-viewport">
+      <div *cdkVirtualFor="let option of options | smtSelectSearchFilter: searchText" class="smt-select-option"
+        (click)="selectOption(option, $event)" [class.active]="isSelected(option)">
+
+        <div *ngIf="config.isMultiSelect" class="checkbox-container">
+          <input type="checkbox" [checked]="isSelected(option)" (click)="$event.stopPropagation()">
+        </div>
+
+        <span>{{ option.label }}</span>
+      </div>
+    </cdk-virtual-scroll-viewport>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

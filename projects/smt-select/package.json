@@ -1,0 +1,34 @@
+{
+  "name": "smt-select",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Samet Acar",
+  "peerDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "keywords": [
+    "angular-dropdown-select",
+    "Angular Dropdown Select",
+    "Angular Selectbox",
+    "Angular Select",
+    "angular select",
+    "Angular Dropdown",
+    "Dropdown Select",
+    "Virtual Scroll",
+    "Virtual Scroll Select",
+    "Dropdown",
+    "angular",
+    "ng",
+    "Angular",
+    "dropdown",
+    "select",
+    "multi-select",
+    "javascript",
+    "typescript"
+  ],
+  "sideEffects": false
+}
