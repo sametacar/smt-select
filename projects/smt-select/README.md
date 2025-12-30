@@ -1,4 +1,4 @@
-# SmtSelect 🚀
+# smt-select 👆
 
 A high-performance, lightweight, and customizable **Angular Select Component** with built-in Virtual Scroll and Search capabilities.
 
@@ -12,6 +12,16 @@ A high-performance, lightweight, and customizable **Angular Select Component** w
 - **🛡️ Type Safe**: Developed with strict TypeScript.
 
 ---
+
+## 🧩 Angular Compatibility
+
+| Angular Version | Support |
+|-----------------|---------|
+| 21.x            | ✅ Yes  |
+| 20.x            | ✅ Yes  |
+| 19.x            | ✅ Yes  |
+| 18.x            | ✅ Yes  |
+
 
 ## 🚀 Installation
 

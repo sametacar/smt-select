@@ -1,6 +1,6 @@
-# SmtSelect 🚀
+# smt-select 👆
 
-A high-performance, lightweight, and customizable **Angular Select Component** with built-in Virtual Scroll and Search capabilities. This project contains both the `smt-select` library and a demo application showcasing its features.
+A high-performance, lightweight, and customizable **Angular Select Component** with built-in Virtual Scroll and Search capabilities.
 
 ## ✨ Features
 
@@ -13,48 +13,27 @@ A high-performance, lightweight, and customizable **Angular Select Component** w
 
 ---
 
-## 🏗️ Project Structure
+## 🧩 Angular Compatibility
 
-- `projects/smt-select`: The core library source code (intended for NPM).
-- `projects/demo`: A sample Angular application to test and demonstrate the library.
+| Angular Version | Support |
+|-----------------|---------|
+| 21.x            | ✅ Yes  |
+| 20.x            | ✅ Yes  |
+| 19.x            | ✅ Yes  |
+| 18.x            | ✅ Yes  |
 
----
 
-## 🚀 Getting Started
+## 🚀 Installation
 
-### 1. Prerequisites
-Make sure you have [Node.js](https://nodejs.org/) and [Angular CLI](https://angular.dev/tools/cli) installed.
+Install the package via npm:
 
-### 2. Installation
-Clone the repository and install the dependencies:
 ```bash
-git clone https://github.com/sametacar/smt-select.git
-cd smt-select
-npm install
+npm install smt-select
 ```
 
 ---
 
-## 💻 Development & Testing
-
-To see the component in action, you can run the demo application:
-
-### Run the Demo App
-```bash
-ng serve
-```
-Open your browser at `http://localhost:4200/`.
-
-### Build the Library
-If you want to build the `smt-select` package for production:
-```bash
-ng build smt-select
-```
-The build artifacts will be stored in the `dist/smt-select` directory.
-
----
-
-## 📦 Usage (Library)
+## 📦 Usage
 
 ### 1. Component Logic (app.component.ts)
 ```typescript
@@ -128,5 +107,3 @@ export class AppComponent {
 ## 📄 License
 
 MIT © [Samet Acar](LICENSE)
-
-
