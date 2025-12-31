@@ -1,13 +1,18 @@
 {
   "name": "smt-select",
-  "version": "0.1.2",
+  "version": "0.1.8",
   "license": "MIT",
   "author": "Samet Acar",
   "peerDependencies": {
-    "@angular/common": "^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
-    "@angular/core": "^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
-    "@angular/forms": "^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0",
-    "@angular/cdk": "^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0"
+    "@angular/common": ">=18.0.0 <22.0.0",
+    "@angular/core": ">=18.0.0 <22.0.0",
+    "@angular/forms": ">=18.0.0 <22.0.0",
+    "@angular/cdk": ">=18.0.0 <22.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/cdk": {
+      "optional": true
+    }
   },
   "dependencies": {
     "tslib": "^2.3.0"

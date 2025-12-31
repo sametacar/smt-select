@@ -28,6 +28,7 @@ export class SmtSelectComponent implements OnDestroy {
     @Input() visibility: SmtVisibilityType = SmtVisibilityType.ENABLED;
 
     @Output() selectionChange = new EventEmitter<any | any[]>();
+    @Output() selectedValueChange = new EventEmitter<any | any[]>();
     @Output() pocketOpen = new EventEmitter<boolean>();
 
     @ViewChild('pocket') pocketElement!: ElementRef;
@@ -187,5 +188,6 @@ export class SmtSelectComponent implements OnDestroy {
 
         this.closePocket();
         this.selectionChange.emit(this.selectedValue);
+        this.selectedValueChange.emit(this.selectedValue);
     }
 }
